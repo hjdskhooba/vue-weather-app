@@ -1,26 +1,44 @@
 <template>
-    <h1 style="text-align: center;" @click="log">{{ hello }}</h1>
+  <Header :temp="temp"/>
+  <Main @temp="onTemp"/>
+  <Footer />
 </template>
 <script>
+import Footer from "./Layout/Footer.vue";
+import Header from "./Layout/Header.vue";
+import Main from "./pages/Main.vue";
+
 export default {
-    data(){
-        return {
-            hello: "Hello world"
-        }
-    },
-    methods: {
-        log(event){
-            alert(event.target.innerText)
-        }
-    },
-}
+  data() {
+    return {
+        temp: "0°C"
+    };
+  },
+  methods: {
+    onTemp (data) {
+        this.temp = data.temp
+    } 
+  },
+  components: { Header, Footer, Main },
+};
 </script>
-<style>
-    h1{
-        width: 100%;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-stretch: condensed;
-    }
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+* {
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-select: auto;
+  font-family: Inter, sans-serif;
+}
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
 </style>
