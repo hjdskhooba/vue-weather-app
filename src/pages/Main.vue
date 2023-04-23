@@ -236,7 +236,7 @@ export default {
       if (closestRight - timeNow < timeNow - closestLeft) {
         this.currentWeatherTime = closestRight;
       } else {
-        this.currentWeatherTime = closestRight;
+        this.currentWeatherTime = closestLeft;
       }
     },
     log(event) {
