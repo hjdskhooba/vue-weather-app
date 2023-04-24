@@ -163,7 +163,15 @@ export default {
       currentWeatherTime: 13,
       dayWeather: [],
       fourDaysWeather: [],
-      aWeek: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
+      aWeek: [
+        "Понедельник",
+        "Вторник",
+        "Среда",
+        "Четверг",
+        "Пятница",
+        "Суббота",
+        "Воскресенье",
+      ],
     };
   },
   methods: {
@@ -178,7 +186,7 @@ export default {
               (el) => el.dt_txt.split(" ")[1].split(":")[0] == "00"
             )
           );
-          this.dayWeather = [...res.data.list.slice(start, 11)];
+          this.dayWeather = [...res.data.list.slice(start, 15)];
         });
     },
     getData() {
@@ -207,19 +215,6 @@ export default {
           this.$emit("temp", {
             temp: this.degNow,
           });
-          // let d = new Date().toLocaleTimeString("kz-KZ")
-          // let hour = Math.round(+d.replaceAll(":", "")[0]) +d.replaceAll(":", "")[1]
-          // let resTime = [];
-          // response.data.list.map(item => {
-          //     resTime.push((item.dt_txt.split(" "))[1].split(":")[0].replaceAll("0", ""))
-          //     if((resTime[0] + resTime[1]) == hour){
-          //     }
-          //     // console.log((resTime[0] + resTime[1]).filter(v => v < hour))
-          //     // console.log(([resTime[0] + resTime[1]][0]) == hour)
-          //     // This is too hard for me, fuck it
-          // })
-          // for(let i = 0; i < response.data.length; i++){
-          // }
         })
         .catch((err) => console.log(err));
     },
