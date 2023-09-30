@@ -178,7 +178,7 @@ export default {
     getDayWeather() {
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/forecast?lat=43.128373&lon=77.081641&appid=${this.apiKey}&units=metric`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=43.128373&lon=77.081641&appid=${this.apiKey}&units=metric`
         )
         .then((res) => {
           let start = res.data.list.indexOf(
@@ -192,7 +192,7 @@ export default {
     getData() {
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/forecast?lat=43.128373&lon=77.081641&appid=${
+          `https://api.openweathermap.org/data/2.5/forecast?lat=43.128373&lon=77.081641&appid=${
             this.apiKey
           }&units=${this.units ? "metric" : "imperial"}`
         ) // Latitude and longitude of shymbulak
@@ -244,7 +244,7 @@ export default {
     getFourDaysWeather() {
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/forecast?lat=43.128373&lon=77.081641&appid=${
+          `https://api.openweathermap.org/data/2.5/forecast?lat=43.128373&lon=77.081641&appid=${
             this.apiKey
           }&${this.units ? "units=metric" : "units=imperial"}`
         )
